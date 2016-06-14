@@ -29,9 +29,10 @@
 	</bean>
 
 	<!-- Entity Manager Factory -->
+	<!-- 	Importarte poner el mismo nombre de persistence.xml en el value -->
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
-		<property name="persistenceUnitName" value="ProyectoGymDog"></property>
+		<property name="persistenceUnitName" value="Proyecto_Empresarial_GYM"></property>
 		<property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
 	</bean>
 
