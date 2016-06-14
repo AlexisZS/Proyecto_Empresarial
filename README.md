@@ -1,2 +1,2 @@
 # Pruebas
-Repositorio destinado a pruebas.
+Repositorio destinado al proyecto final de proyecto_empresarial.
