@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+
+	<title>GYM</title>
+	<h:outputStylesheet library="css" name="demo.css" />
+
+	<h:outputStylesheet library="css" name="style.css" />
+	<h:outputStylesheet library="css" name="style2.css" />
+	<h:outputStylesheet library="css" name="style3.css" />
+	<h:outputStylesheet library="css" name="animate-custom.css" />
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+</h:head>
+<h:body>
+
+	<div class="container">
+		<header>
+		<h1>
+			Login Gym <span>Mr DOG</span>
+		</h1>
+
+		</header>
+
+		<section>
+		<div id="container_demo">
+			<!-- hidden anchor to stop jump http://www.css3create.com/Astuce-Empecher-le-scroll-avec-l-utilisation-de-target#wrap4  -->
+			<a class="hiddenanchor" id="toregister"></a> <a class="hiddenanchor"
+				id="tologin"></a>
+			<div id="wrapper">
+				<div id="login" class="animate form">
+					<h:form >
+						<h1>Log in</h1>
+						<p>
+							<label for="username" class="uname" data-icon="u"> email
+								o usuario </label>
+								<input id="username" name="#{logeoManagedBean.oUsuario.correo}"
+								required="required" type="text"
+								placeholder="mi usuario or miemail@mail.com" />
+						</p>
+						<p>
+							<label for="password" class="youpasswd" data-icon="p">
+								contraseña </label> <input id="password" name="#{logeoManagedBean.oUsuario.clave}"
+								required="required" type="password"
+								placeholder="Ingrese contraseña" />
+						</p>
+						<p class="keeplogin">
+							<input type="checkbox" name="loginkeeping" id="loginkeeping"
+								value="loginkeeping" /> <label for="loginkeeping">Recordar
+								mi contraseña</label>
+						</p>
+						<p class="login button">
+							<h:commandButton  value="Ingresar" action="#{logeoManagedBean.login}"/>
+						</p>
+
+					</h:form>
+
+
+				</div>
+			</div>
+		</div>
+		</section>
+	</div>
+</h:body>
+
+
+</html>
