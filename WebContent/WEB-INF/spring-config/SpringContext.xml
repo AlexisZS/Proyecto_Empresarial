@@ -10,10 +10,10 @@
 	<context:annotation-config />
 
 	<!-- For defining Spring Bean -->
-	<context:component-scan base-package="pe.edu.cibertec.proyemp.service" />
+	<context:component-scan base-package="pe.com.proygym.service" />
 
 	<!-- For bootstrapping the Spring Repository -->
-	<jpa:repositories base-package="pe.edu.cibertec.proyemp.repository" />
+	<jpa:repositories base-package="pe.com.proygym.repository" />
 
 	<!-- Necessary to get the entity manager injected into the factory bean -->
 	<bean
@@ -29,10 +29,9 @@
 	</bean>
 
 	<!-- Entity Manager Factory -->
-	<!-- 	Importarte poner el mismo nombre de persistence.xml en el value -->
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
-		<property name="persistenceUnitName" value="Proyecto_Empresarial_GYM"></property>
+		<property name="persistenceUnitName" value="ProyectoGymDog"></property>
 		<property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
 	</bean>
 

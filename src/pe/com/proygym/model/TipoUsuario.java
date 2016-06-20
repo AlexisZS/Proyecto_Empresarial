@@ -1,10 +1,14 @@
 package pe.com.proygym.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,13 +22,18 @@ public class TipoUsuario implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column
-	private int idTipoUsu;
+	private Integer idTipoUsu;
 	@Column
 	private String desTipoUsu;
-	public int getIdTipoUsu() {
+	
+	
+	@OneToMany(mappedBy="oTipoUsuario",cascade=CascadeType.PERSIST)
+    private List<Usuario> listUsuario = new ArrayList<Usuario>();
+	
+	public Integer getIdTipoUsu() {
 		return idTipoUsu;
 	}
-	public void setIdTipoUsu(int idTipoUsu) {
+	public void setIdTipoUsu(Integer idTipoUsu) {
 		this.idTipoUsu = idTipoUsu;
 	}
 	public String getDesTipoUsu() {

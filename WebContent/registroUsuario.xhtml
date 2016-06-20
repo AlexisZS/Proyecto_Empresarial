@@ -6,16 +6,87 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
+
 <ui:composition template="/WEB-INF/template/MasterPage.xhtml">
 
 	<ui:define name="content">
-	  <h1> Registro de Usuarios</h1>
-	   <h:form>
-	   
-	   
-	   
-	   </h:form>
+		<center>
+			<br></br> <br></br>
+			<h1>Registro de Usuarios</h1>
+			<br></br> <br></br>
+
+			<h:form>
+
+				<h:panelGrid columns="2" border="0" styleClass="table table">
+
+					<h:outputText value="ID Usuario " />
+					<h:inputText id="nameId" value="#{usuarioManagedBean.oUsuario.idUsuario}"  styleClass="form-control ">
+					</h:inputText>
+
+					<h:outputText value="Clave: " />
+					<h:inputSecret id="nameId1" value="#{usuarioManagedBean.oUsuario.clave}" styleClass="form-control">
+					</h:inputSecret>
+
+					<h:outputText value="Nombre: " />
+					<h:inputText id="nameId2" value="#{usuarioManagedBean.oUsuario.apePaterno}" styleClass="form-control">
+					</h:inputText>
+
+					<h:outputText value="Apellido Paterno: " />
+					<h:inputText id="nameId3" value="#{usuarioManagedBean.oUsuario.apeMaterno}" styleClass="form-control">
+					</h:inputText>
+
+					<h:outputText value="Apellido Materno: " />
+					<h:inputText id="nameId4" value="#{usuarioManagedBean.oUsuario.fecNac}" styleClass="form-control">
+					</h:inputText>
+
+					<h:outputText value="Feccha Nacimiento: " />
+					<h:inputText id="nameId5" value="" styleClass="form-control">
+					</h:inputText>
+
+					<h:outputText value="correo: " />
+					<h:inputText id="nameId6" value="#{usuarioManagedBean.oUsuario.correo}" styleClass="form-control">
+					</h:inputText>
+
+					<h:outputText value="Direccion:" />
+					<h:inputText id="nameId7" value="#{usuarioManagedBean.oUsuario.direccion}" styleClass="form-control">
+					</h:inputText>
+
+					<h:outputText value="Distrito:" />
+				
+					<h:selectOneMenu value="#{usuarioManagedBean.oUsuario.oDistrito.idDistrito}" styleClass="form-control">
+				
+						<f:selectItems value="#{usuarioManagedBean.listDistrito}" var="d" itemLabel="#{d.nomDistrito}" itemValue="#{d.idDistrito}">
+						
+						</f:selectItems>
+					</h:selectOneMenu>
+					
+
+					<h:outputText value="telefono: " />
+					<h:inputText id="nameId9" value="#{usuarioManagedBean.oUsuario.telefono}" styleClass="form-control">
+					</h:inputText>
+
+					<h:outputText value="Tipo de Usuario: " />
+					<h:selectOneMenu value="#{usuarioManagedBean.oUsuario.oTipoUsuario.idTipoUsu}" styleClass="form-control">
+				
+						<f:selectItems value="#{usuarioManagedBean.listTipoUsuario}" var="d" itemLabel="#{d.desTipoUsu}" itemValue="#{d.idTipoUsu}">
+						
+						</f:selectItems>
+					</h:selectOneMenu>
+
+					<h:outputText value="Estado: " />
+					<h:selectBooleanCheckbox id="nameId11" value="#{usuarioManagedBean.oUsuario.estado}" styleClass="form-control">
+					</h:selectBooleanCheckbox>
+
+					<h:outputText value=""/>
+					<h:commandButton value="Login" action="#{usuarioManagedBean.registrar}" styleClass="btn btn-default"></h:commandButton>
+
+				</h:panelGrid>
+			</h:form>
+
+		</center>
+		<ui:include src="/listadoUsuarios.xhtml"></ui:include>
+		
 	</ui:define>
-	
 </ui:composition>
+
 </html>

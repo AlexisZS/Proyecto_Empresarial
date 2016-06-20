@@ -1,34 +1,57 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 <head>
-  <title><ui:insert name="title">Default title</ui:insert></title>
+<title><ui:insert name="title">Default title</ui:insert></title>
+<link href="resources/bootstrap/css/bootstrap-theme.min.css"
+	rel="stylesheet" />
+<link href="resources/css/styleMaster.css" rel="stylesheet" />
+<link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="resources/bootstrap/css/bootstrap-theme.css"
+	rel="stylesheet" />
+<link rel="stylesheet" media="screen"
+	href="resources/bootstrap/css/bootstrap-admin-theme-change-size.css" />
+<link href="resources/css/docs.css" rel="stylesheet" />
+<link href="resources/bootstrap/css/bootstrap-admin-theme.css"
+	rel="stylesheet" />
+
 </head>
 
-<body>
-<ui:debug hotkey="x" rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}"/>
+<body class="bootstrap-admin-with-small-navbar">
+	<ui:debug hotkey="x"
+		rendered="#{initParam['javax.faces.FACELETS_DEVELOPMENT']}" />
 
-<div id="header">
-    <ui:insert name="header">
-    	 <ui:include src="header.xhtml"/> 
-    </ui:insert>
-</div>
+	<div id="header">
+		<ui:insert name="header">
+			<ui:include src="header.xhtml" />
+		</ui:insert>
+	</div>
 
 
-<div id="content">
-  <ui:insert name="content">
-    	
-  </ui:insert>
-</div>
+	<div id="content">
+		<ui:insert name="content">
 
-<div id="footer">
-  <ui:insert name="footer">
-    	
-		<ui:include src="footer.xhtml"/>  
-  </ui:insert>
-</div>
+		</ui:insert>
+	</div>
 
+	<div id="footer">
+		<ui:insert name="footer">
+
+			<ui:include src="footer.xhtml" />
+		</ui:insert>
+	</div>
+	<script type="text/javascript"
+		src="resources/bootstrap/js/jquery-1.9.1.js"></script>
+
+	<script type="text/javascript"
+		src="resources/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="resources/bootstrap/js/twitter-bootstrap-hover-dropdown.min.js"></script>
+	<script type="text/javascript"
+		src="resources/bootstrap/js/bootstrap-admin-theme-change-size.js"></script>
+	<script type="text/javascript"
+		src="resources/bootstrap/js/twitter-bootstrap-hover-dropdown.js"></script>
 </body>
 
 </html>
