@@ -1,16 +1,13 @@
 use master;
 -- Borra la bd
-DROP DATABASE DogGYM
-go
+DROP DATABASE DogGYM;
 
 -- Creamos la bd
 CREATE DATABASE DogGYM
-go
-
+;
 -- Usar la bd
 USE DogGYM
-go
-
+;
 -- TABLAS
 CREATE TABLE tb_categorias
 (
@@ -19,8 +16,7 @@ CREATE TABLE tb_categorias
   descripcion         varchar(50),
   estado              bit
 )
-go
-
+;
 CREATE TABLE tb_proveedores
 (
   idProveedor         char(5)  not null primary key,
@@ -31,8 +27,7 @@ CREATE TABLE tb_proveedores
   telefono            varchar(11),
   estado              bit
 )
-go
-
+;
 CREATE TABLE tb_productos
 (
 idProd                char(5) not null primary key,
@@ -47,21 +42,20 @@ estado                bit,
 FOREIGN KEY (idProveedor) references  tb_proveedores (idProveedor),
 FOREIGN KEY  (idCategoria) references tb_categorias (idCategoria)
 )
-go
+;
 
 CREATE TABLE tb_distritos
 (
 	idDistrito        int primary key,
 	nomDistrito       varchar(50) not null
 )
-go
-
+;
 CREATE TABLE tb_tipo_usuario
 (
 	idTipoUsu         int primary key,
 	desTipoUsu        varchar(30) not null
 )
-go
+;
 
 CREATE TABLE tb_usuarios
 (
@@ -80,8 +74,7 @@ CREATE TABLE tb_usuarios
   FOREIGN KEY (idDistrito) references tb_distritos(idDistrito),
   FOREIGN KEY (idTipoUsu) references tb_tipo_usuario(idTipoUsu)
 )
-go
-
+;
 CREATE TABLE tb_pedidos
 (
 	idPedido               char (5) not null primary key,
@@ -96,8 +89,7 @@ CREATE TABLE tb_pedidos
   FOREIGN KEY (idUsuario) references tb_usuarios(idUsuario),
   FOREIGN KEY (idDistritoDestinatario) references tb_distritos(idDistrito)
 )
-go
-
+;
 CREATE TABLE tb_detalle_pedido
 (
 idDetallePed             char(5) not null primary key,
@@ -109,7 +101,7 @@ precioTotal              decimal(8,2),
 FOREIGN KEY (idPedido) references tb_pedidos(idPedido),
 FOREIGN KEY (idProd) references tb_productos(idProd)
 )
-go
+;
 
 CREATE TABLE tb_factura
 (
@@ -120,8 +112,7 @@ estFac                    varchar(20),
 estado                    bit,
 FOREIGN KEY (idUsuario) references tb_usuarios (idUsuario)
 )
-go
-
+;
 CREATE TABLE tb_detalle_factura
 (
 idDetFac                  char(5)not null primary key,
@@ -131,10 +122,12 @@ canVend                   int,
 preVenta                  decimal(8,2),
 FOREIGN KEY (idProd) references tb_productos(idProd)
 )
-go
-
+;
 select * from tb_usuarios;
-go
+;
+
+
+
 
 
 
@@ -168,4 +161,8 @@ CREATE TABLE tb_Distrito (
   )
 
 
+INSERT INTO `doggym`.`tb_categorias` (`idCategoria`, `nombreCategoria`, `descripcion`, `estado`) VALUES ('1', 'USUARIO', 'USUARIOS', 1);
+INSERT INTO `doggym`.`tb_distritos` (`idDistrito`, `nomDistrito`) VALUES ('1', 'LIMA');
+INSERT INTO `doggym`.`tb_tipo_usuario` (`idTipoUsu`, `desTipoUsu`) VALUES ('1', 'ADMINISTRADOR');
+INSERT INTO `doggym`.`tb_usuarios` (`idUsuario`, `clave`, `nombre`, `apePaterno`, `apeMaterno`, `fecNac`, `correo`, `direccion`, `idDistrito`, `telefono`, `idTipoUsu`, `estado`) VALUES ('admin', 'admin', 'alvaro', 'aguinagal', 'delgado', '1992/03/27', 'alvaro_9218@hotmail.com', 'calle san miguel', '1', '4373715', '1', 1);
 
