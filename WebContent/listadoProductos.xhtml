@@ -8,40 +8,41 @@
 	<h:outputStylesheet library="css" name="bootstrap.css" />
 	<h:outputStylesheet library="css" name="bootstrap.min.css" />
 	<h:outputStylesheet library="css" name="animate-custom.css" />
-<h:dataTable value="#{usuarioManagedBean.listUsuario}" var="u"
+<h:dataTable value="#{productoManagedBean.listProductos}" var="u"
 	border="0" styleClass="table" >
 	<h:column>
 		<f:facet name="header">Id</f:facet>
-				#{u.idUsuario}
+				#{u.idProd}
 			</h:column>
-	<h:column>
-		<f:facet name="header">Nombre</f:facet>
-				#{u.nombre}
-			</h:column>
-	<h:column>
-		<f:facet name="header">Paterno</f:facet>
-				#{u.apePaterno}
-			</h:column>
-	<h:column>
-		<f:facet name="header">Materno</f:facet>
-				#{u.apeMaterno}
-			</h:column>
-	<h:column>
-		<f:facet name="header">Fecha Nac.</f:facet>
-				#{u.fecNac}
-			</h:column>
-	<h:column>
-		<f:facet name="header">Correo</f:facet>
-				#{u.correo}
-			</h:column>
-	<h:column>
-		<f:facet name="header">Direccion</f:facet>
-				#{u.direccion}
-			</h:column>
-	<h:column>
-		<f:facet name="header">Telefono</f:facet>
-				#{u.telefono}
-			</h:column>
+<!-- 	<h:column> -->
+<!-- 		<f:facet name="header">Nombre</f:facet> -->
+<!-- 				#{u.nombre} -->
+<!-- 			</h:column> -->
+<!-- 	<h:column> -->
+<!-- 		<f:facet name="header">Paterno</f:facet> -->
+<!-- 				#{u.apePaterno} -->
+<!-- 			</h:column> -->
+<!-- 	<h:column> -->
+<!-- 		<f:facet name="header">Materno</f:facet> -->
+<!-- 				#{u.apeMaterno} -->
+<!-- 			</h:column> -->
+<!-- 	<h:column> -->
+<!-- 		<f:facet name="header">Fecha Nac.</f:facet> -->
+<!-- 				#{u.fecNac} -->
+<!-- 			</h:column> -->
+<!-- 	<h:column> -->
+<!-- 		<f:facet name="header">Correo</f:facet> -->
+<!-- 				#{u.correo} -->
+<!-- 			</h:column> -->
+<!-- 	<h:column> -->
+<!-- 		<f:facet name="header">Direccion</f:facet> -->
+<!-- 				#{u.direccion} -->
+<!-- 			</h:column> -->
+<!-- 	<h:column> -->
+<!-- 		<f:facet name="header">Telefono</f:facet> -->
+<!-- 				#{u.telefono} -->
+<!-- 			</h:column> -->
 </h:dataTable>
+		
 		
 </html>
