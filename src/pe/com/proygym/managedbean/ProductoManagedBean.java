@@ -9,14 +9,15 @@ import javax.faces.bean.SessionScoped;
 
 import pe.com.proygym.model.Producto;
 import pe.com.proygym.service.IProductoService;
+import pe.com.proygym.service.impl.ProductoServiceImpl;
 
 
 @ManagedBean
 @SessionScoped
 public class ProductoManagedBean {
 	
-	@ManagedProperty(value = "#{iProductoService}")
-	private IProductoService iProductoService;
+	@ManagedProperty(value = "#{productoServiceImpl}")
+	private ProductoServiceImpl productoServiceImpl;
 	
 	private Producto producto = new Producto();
 	
@@ -26,16 +27,20 @@ public class ProductoManagedBean {
 	
 	
 	//-------------------------------------------------------------
-	public IProductoService getiProductoService() {
-		return iProductoService;
-	}
 
-	public void setiProductoService(IProductoService iProductoService) {
-		this.iProductoService = iProductoService;
-	}
-
+	
+	
+	
 	public Producto getProducto() {
 		return producto;
+	}
+
+	public ProductoServiceImpl getProductoServiceImpl() {
+		return productoServiceImpl;
+	}
+
+	public void setProductoServiceImpl(ProductoServiceImpl productoServiceImpl) {
+		this.productoServiceImpl = productoServiceImpl;
 	}
 
 	public void setProducto(Producto producto) {
@@ -43,7 +48,7 @@ public class ProductoManagedBean {
 	}
 
 	public List<Producto> getListProductos() {
-		return listProductos = iProductoService.getAll();
+		return listProductos = productoServiceImpl.getAll();
 	}
 
 	public void setListProductos(List<Producto> listProductos) {
