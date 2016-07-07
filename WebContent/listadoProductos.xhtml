@@ -5,44 +5,58 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
-	<h:outputStylesheet library="css" name="bootstrap.css" />
-	<h:outputStylesheet library="css" name="bootstrap.min.css" />
-	<h:outputStylesheet library="css" name="animate-custom.css" />
-<h:dataTable value="#{productoManagedBean.listProductos}" var="u"
-	border="0" styleClass="table" >
-	<h:column>
-		<f:facet name="header">Id</f:facet>
-				#{u.idProd}
-			</h:column>
-<!-- 	<h:column> -->
-<!-- 		<f:facet name="header">Nombre</f:facet> -->
-<!-- 				#{u.nombre} -->
-<!-- 			</h:column> -->
-<!-- 	<h:column> -->
-<!-- 		<f:facet name="header">Paterno</f:facet> -->
-<!-- 				#{u.apePaterno} -->
-<!-- 			</h:column> -->
-<!-- 	<h:column> -->
-<!-- 		<f:facet name="header">Materno</f:facet> -->
-<!-- 				#{u.apeMaterno} -->
-<!-- 			</h:column> -->
-<!-- 	<h:column> -->
-<!-- 		<f:facet name="header">Fecha Nac.</f:facet> -->
-<!-- 				#{u.fecNac} -->
-<!-- 			</h:column> -->
-<!-- 	<h:column> -->
-<!-- 		<f:facet name="header">Correo</f:facet> -->
-<!-- 				#{u.correo} -->
-<!-- 			</h:column> -->
-<!-- 	<h:column> -->
-<!-- 		<f:facet name="header">Direccion</f:facet> -->
-<!-- 				#{u.direccion} -->
-<!-- 			</h:column> -->
-<!-- 	<h:column> -->
-<!-- 		<f:facet name="header">Telefono</f:facet> -->
-<!-- 				#{u.telefono} -->
-<!-- 			</h:column> -->
-</h:dataTable>
-		
-		
+
+
+<ui:composition template="/WEB-INF/template/MasterPage.xhtml">
+
+	<ui:define name="content">
+		<center>
+			<br></br> <br></br>
+			<h1>Registro de Producto</h1>
+			<br></br> <br></br>
+
+			<h:form>
+				<h:dataTable value="#{productoManagedBean.listProductos}" var="u"
+					border="0" styleClass="table">
+
+					<h:column>
+						<f:facet name="header">Id</f:facet>
+						<h:commandLink action="#{productoManagedBean.paseEditar}">
+							#{u.idProd}
+							<f:param name="idProd" value="#{u.idProd}"></f:param>
+						</h:commandLink>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Nombre</f:facet>
+						#{u.nomPro}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Stock</f:facet>
+						#{u.disponible}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Precio</f:facet>
+						#{u.precio}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Proveedor</f:facet>
+						#{u.oProvedor.nombreCia}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Categoria</f:facet>
+						#{u.oCategoria.nombreCategoria}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Estado</f:facet>
+						#{u.estado}
+					</h:column>
+				</h:dataTable>
+
+			</h:form>
+
+		</center>
+
+	</ui:define>
+</ui:composition>
+
 </html>
