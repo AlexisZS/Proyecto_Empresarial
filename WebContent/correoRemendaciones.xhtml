@@ -9,7 +9,44 @@
 <ui:composition template="/WEB-INF/template/MasterPage.xhtml">
 
 	<ui:define name="content">
-		<h1>Recomendaciones</h1>
+	<center>
+			<br></br> <br></br>
+			<h1>Enviar de Recomendaciones</h1>
+			<br></br> <br></br>
+
+			<h:form>
+
+				<h:panelGrid columns="2" border="0" styleClass="">
+
+					<h:outputText value="Usuario " />
+					<h:inputText id="nameId"
+						value=""
+						styleClass="form-control ">
+					</h:inputText>
+
+					<h:outputText value="Recomendaciones: " />
+					<h:inputTextarea id="nameId1"
+						value=""
+						styleClass="form-control">
+					</h:inputTextarea>
+
+
+
+					<h:outputText value="Estado: " />
+					<h:selectBooleanCheckbox id="nameId11"
+						value="" styleClass="">
+					</h:selectBooleanCheckbox>
+
+					<h:outputText value="" />
+					<h:commandButton value="Send"
+						
+						styleClass="btn btn-default">
+						</h:commandButton>
+
+				</h:panelGrid>
+			</h:form>
+
+		</center>
 	</ui:define>
 
 </ui:composition>
