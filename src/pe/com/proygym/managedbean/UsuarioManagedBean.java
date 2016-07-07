@@ -1,12 +1,13 @@
 package pe.com.proygym.managedbean;
 
 import java.util.ArrayList;
-
 import java.util.List;
+import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import com.google.common.collect.Lists;
 
@@ -38,9 +39,19 @@ public class UsuarioManagedBean {
 	private List<Distrito> listDistrito = new ArrayList<Distrito>();
 
 	private List<TipoUsuario> listTipoUsuario = new ArrayList<TipoUsuario>();
+	// Referencia a la Lista Usuarios
+		private List<Usuario> listUsuarios = new ArrayList<Usuario>();
+	
+	
 
-	
-	
+	public List<Usuario> getListUsuarios() {
+		listUsuarios = Lists.newArrayList(usuarioService.getUsuarioRepository().findAll());	
+		return listUsuarios;
+		}
+
+		public void setListUsuarios(List<Usuario> listUsuarios) {
+			this.listUsuarios = listUsuarios;
+		}
 
 	public TipoUsuarioService getTipoUsuarioService() {
 		return tipoUsuarioService;
@@ -89,8 +100,8 @@ public class UsuarioManagedBean {
 	}
 
 	public List<Usuario> getListUsuario() {
-		listUsuario = Lists.newArrayList(usuarioService.getUsuarioRepository()
-				.findAll());
+	//	listUsuario = Lists.newArrayList(usuarioService.getUsuarioRepository()
+	//			.findAll());
 		return listUsuario;
 	}
 
@@ -105,10 +116,28 @@ public class UsuarioManagedBean {
 	public void setUsuarioService(UsuarioService usuarioService) {
 		this.usuarioService = usuarioService;
 	}
-
+   
 	public String registrar() {
 		usuarioService.getUsuarioRepository().save(oUsuario);
+		
+		
+		
 		return null;
 	}
+	public String actualiza() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		Map params = context.getExternalContext().getRequestParameterMap();
+		String paramId = (String) params.get("id");
+		
+		oUsuario = usuarioService.getUsuarioRepository().findOne(new String(paramId));
+		 
+		
+	
+		return "actualizarUsuario";
+	}
+   public String buscar(){
+		listUsuario = Lists.newArrayList(usuarioService.getUsuarioRepository().obtenerSeriesPorId(oUsuario.getNombre()));
 
+	   return null;
+   }
 }

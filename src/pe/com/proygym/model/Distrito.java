@@ -28,8 +28,27 @@ public class Distrito implements Serializable {
 	private Integer idDistrito;
 	@Column
 	private String nomDistrito;
+	@Column
+	private String nomPais;
+	@Column
+	private String nomProvincia;
 	
-     @OneToMany(mappedBy="oDistrito",cascade=CascadeType.PERSIST)
+     public String getNomPais() {
+		return nomPais;
+	}
+
+	public void setNomPais(String nomPais) {
+		this.nomPais = nomPais;
+	}
+
+	public String getNomProvincia() {
+		return nomProvincia;
+	}
+
+	public void setNomProvincia(String nomProvincia) {
+		this.nomProvincia = nomProvincia;
+	}
+	@OneToMany(mappedBy="oDistrito",cascade=CascadeType.PERSIST)
      private List<Usuario> listUsuario = new ArrayList<Usuario>();
      
      

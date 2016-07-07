@@ -8,8 +8,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import pe.com.proygym.model.Producto;
-import pe.com.proygym.service.IProductoService;
-import pe.com.proygym.service.impl.ProductoServiceImpl;
+import pe.com.proygym.service.ProductoService;
 
 
 @ManagedBean
@@ -17,7 +16,7 @@ import pe.com.proygym.service.impl.ProductoServiceImpl;
 public class ProductoManagedBean {
 	
 	@ManagedProperty(value = "#{productoServiceImpl}")
-	private ProductoServiceImpl productoServiceImpl;
+	private ProductoService productoService;
 	
 	private Producto producto = new Producto();
 	
@@ -31,28 +30,5 @@ public class ProductoManagedBean {
 	
 	
 	
-	public Producto getProducto() {
-		return producto;
-	}
 
-	public ProductoServiceImpl getProductoServiceImpl() {
-		return productoServiceImpl;
-	}
-
-	public void setProductoServiceImpl(ProductoServiceImpl productoServiceImpl) {
-		this.productoServiceImpl = productoServiceImpl;
-	}
-
-	public void setProducto(Producto producto) {
-		this.producto = producto;
-	}
-
-	public List<Producto> getListProductos() {
-		return listProductos = productoServiceImpl.getAll();
-	}
-
-	public void setListProductos(List<Producto> listProductos) {
-		this.listProductos = listProductos;
-	}
-	
 }

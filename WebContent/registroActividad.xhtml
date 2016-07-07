@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://*//java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/template/MasterPage.xhtml">
+
+	<ui:define name="content">
+		<center>
+			<br></br> <br></br>
+			<h1>Seguimiento Actividad</h1>
+			<br></br> <br></br>
+
+			<h:form>
+
+				<h:panelGrid columns="2" border="0" styleClass="">
+
+					<h:outputText value="Cod Rutina " />
+					<h:inputText id="nameId"
+						value="#{rutinaManagedBean.oRutina.idRutina}"
+						styleClass="form-control ">
+					</h:inputText>
+
+					<h:outputText value="Usuario:" />
+
+					<h:selectOneMenu
+						value="#{rutinaManagedBean.oRutina.oUsuario.idUsuario}"
+						styleClass="form-control">
+
+						<f:selectItems value="#{rutinaManagedBean.listUsuario}" var="d"
+							itemLabel="#{d.nombre}" itemValue="#{d.idUsaurio}">
+
+						</f:selectItems>
+					</h:selectOneMenu>
+					<h:outputText value="Cliente" />
+					<h:selectOneMenu
+						value="#{rutinaManagedBean.oRutina.oCliente.idCliente}"
+						styleClass="form-control">
+
+						<f:selectItems value="#{rutinaManagedBean.listCliente}" var="d"
+							itemLabel="#{d.nombre}" itemValue="#{d.idCliente}">
+
+						</f:selectItems>
+					</h:selectOneMenu>
+
+					<h:outputText value="Actividad:" />
+					<h:selectOneMenu
+						value="#{rutinaManagedBean.oRutina.oActividad.idActividad}"
+						styleClass="form-control">
+
+						<f:selectItems value="#{rutinaManagedBean.listActividad}" var="d"
+							itemLabel="#{d.descrip}" itemValue="#{d.idActividad}">
+
+						</f:selectItems>
+					</h:selectOneMenu>
+					<h:outputText value="Comentario: " />
+					<h:inputText id="nameId2"
+						value="#{rutinaManagedBean.oRutina.comentario}"
+						styleClass="form-control">
+					</h:inputText>
+
+					<h:outputText value="Logro: " />
+					<h:inputText id="nameId3"
+						value="#{rutinaManagedBean.oRutina.logro}"
+						styleClass="form-control">
+					</h:inputText>
+
+					<h:outputText value="Series	: " />
+					<h:inputText id="nameId4"
+						value="#{rutinaManagedBean.oRutina.serie}"
+						styleClass="form-control">
+					</h:inputText>
+
+
+
+					<h:outputText value="Rutina: " />
+					<h:inputText id="nameId6"
+						value="#{rutinaManagedBean.oRutina.rutina}"
+						styleClass="form-control">
+					</h:inputText>
+
+					<h:outputText value="Recomendaciones:" />
+					<h:inputText id="nameId7"
+						value="#{rutinaManagedBean.oRutina.recomendaciones}"
+						styleClass="form-control">
+					</h:inputText>
+
+					<h:outputText value="Fecha Actividad: " />
+					<h:inputText id="nameId5"
+						value="#{usuarioManagedBean.oUsuario.fecNac}"
+						styleClass="form-control">
+						<f:convertDateTime type="date" pattern="dd/mm/yyyy" />
+					</h:inputText>
+
+
+					<h:outputText value="telefono: " />
+					<h:inputText id="nameId9"
+						value="#{rutinaManagedBean.oRutina.canthoras}"
+						styleClass="form-control">
+					</h:inputText>
+
+
+
+
+					<h:outputText value="" />
+					<h:commandButton value="Registra"
+						action="#{rutinaManagedBean.registrar}"
+						styleClass="btn btn-default"></h:commandButton>
+
+				</h:panelGrid>
+			</h:form>
+
+		</center>
+	</ui:define>
+
+</ui:composition>
+</html>

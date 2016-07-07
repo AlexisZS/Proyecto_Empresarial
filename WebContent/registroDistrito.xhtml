@@ -5,48 +5,65 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
- 
+
 <ui:composition template="/WEB-INF/template/MasterPage.xhtml">
 
-<ui:define name="content">
-<div class="container">
-<br></br> <br></br> <br></br>
-		<center>
-			
-		</center>
-		<center>
-			<br></br> <br></br><h1>Listar Distritos</h1> <br></br>
-			<h:form>
-			
-				<h:panelGrid columns="2" border="0" footerClass="table table-hover"  styleClass="">
-
-					<h:outputText value="Codigo Distrito" />
-					<h:inputText id="nameId1"
-						value="#{distritoManagedBean.oDistrito.idDistrito}">
-					</h:inputText>
-					<h:outputText value="Distrito: " />
-					<h:inputText id="nameId2"
-						value="#{distritoManagedBean.oDistrito.nomDistrito}">
-					</h:inputText>
-					<h:outputText value="" />
-
-					<h:commandButton value="Registra"
-						action="#{distritoManagedBean.registrar}"></h:commandButton>
-				</h:panelGrid>
-			</h:form>
+	<ui:define name="content">
+		<div class="container">
 			<br></br> <br></br> <br></br>
-			<h:dataTable value="#{distritoManagedBean.listDistrito}" var="d" 
-				border="1" styleClass="table table-hover">
-				<h:column>
-					<f:facet name="header">Id</f:facet>
+			<center></center>
+			<center>
+				<br></br> <br></br>
+				<h1>Listar Distritos</h1>
+				<br></br>
+				<h:form>
+
+					<h:panelGrid columns="2" border="0" footerClass="table table-hover"
+						styleClass="">
+
+						<h:outputText value="Codigo Distrito" />
+						<h:inputText id="nameId1"
+							value="#{distritoManagedBean.oDistrito.idDistrito}">
+						</h:inputText>
+						<h:outputText value="Distrito: " />
+						<h:inputText id="nameId2"
+							value="#{distritoManagedBean.oDistrito.nomDistrito}">
+						</h:inputText>
+						<h:outputText value="Provincia: " />
+						<h:inputText id="nameId3"
+							value="#{distritoManagedBean.oDistrito.nomProvincia}">
+						</h:inputText>
+						<h:outputText value="País: " />
+						<h:inputText id="nameId4"
+							value="#{distritoManagedBean.oDistrito.nomPais}">
+						</h:inputText>
+						<h:outputText value="" />
+
+						<h:commandButton value="Registra"
+							action="#{distritoManagedBean.registrar}"></h:commandButton>
+					</h:panelGrid>
+				</h:form>
+				<br></br> <br></br> <br></br>
+				<h:dataTable value="#{distritoManagedBean.listDistrito}" var="d"
+					border="1" styleClass="table table-hover">
+					<h:column>
+						<f:facet name="header">Id</f:facet>
 				#{d.idDistrito}
 			</h:column>
-				<h:column>
-					<f:facet name="header">Nombre</f:facet>
+					<h:column>
+						<f:facet name="header">Nombre</f:facet>
 				#{d.nomDistrito}
 			</h:column>
-			</h:dataTable>
-		</center>
+					<h:column>
+						<f:facet name="header">Nombre</f:facet>
+				#{d.nomProvincia}
+			</h:column>
+					<h:column>
+						<f:facet name="header">Nombre</f:facet>
+				#{d.nomPais}
+			</h:column>
+				</h:dataTable>
+			</center>
 		</div>
 	</ui:define>
 

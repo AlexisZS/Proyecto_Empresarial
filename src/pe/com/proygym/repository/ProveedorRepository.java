@@ -7,13 +7,13 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import pe.com.proygym.model.Proveedor;
 import pe.com.proygym.model.Usuario;
 
-
 @Repository
-public interface UsuarioRepository extends CrudRepository<Usuario, String> {
+public interface ProveedorRepository extends CrudRepository<Proveedor, String> {
 	
-	@Query("select d from Usuario d where d.nombre = :v_nom")
-	public List<Usuario> obtenerSeriesPorId(@Param("v_nom")String nom);
-
+	
+	@Query("select d from Proveedor d where d.nombreCia = :v_nom")
+	public List<Proveedor> obtenerSeriesPorId(@Param("v_nom")String nom);
 }

@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/template/MasterPage.xhtml">
+
+	<ui:define name="content">
+		<center>
+			<br></br> <br></br>
+			<h1>Registro de Proveedor</h1>
+			<br></br> <br></br>
+
+			<h:form>
+
+				<h:panelGrid columns="2" border="0" styleClass="">
+
+					<h:outputText value="ID Proveedor " />
+					<h:inputText id="nameId"
+						value="#{proveedorManagedBean.oProveedor.idProveedor}"
+						styleClass="form-control ">
+					</h:inputText>
+
+					<h:outputText value="CIA: " />
+					<h:inputText id="nameId1"
+						value="#{proveedorManagedBean.oProveedor.nombreCia}"
+						styleClass="form-control">
+					</h:inputText>
+
+					<h:outputText value="Nombre Contacto: " />
+					<h:inputText id="nameId2"
+						value="#{proveedorManagedBean.oProveedor.nombreContacto}"
+						styleClass="form-control">
+					</h:inputText>
+
+					<h:outputText value="Cargo Contacto: " />
+					<h:inputText id="nameId3"
+						value="#{proveedorManagedBean.oProveedor.cargoContacto}"
+						styleClass="form-control">
+					</h:inputText>
+
+					<h:outputText value="Dirección : " />
+					<h:inputText id="nameId4"
+						value="#{proveedorManagedBean.oProveedor.direccion}"
+						styleClass="form-control">
+					</h:inputText>
+
+					<h:outputText value="Telefono: " />
+					<h:inputText id="nameId5"
+						value="#{proveedorManagedBean.oProveedor.telefono}"
+						styleClass="form-control">
+
+					</h:inputText>
+
+					<h:outputText value="Estado: " />
+					<h:selectBooleanCheckbox id="nameId11"
+						value="#{proveedorManagedBean.oProveedor.estado}" styleClass="">
+					</h:selectBooleanCheckbox>
+
+					<h:outputText value="" />
+					<h:commandButton value="Registra"
+						action="#{proveedorManagedBean.registro}"
+						styleClass="btn btn-default"></h:commandButton>
+
+				</h:panelGrid>
+			</h:form>
+
+		</center>
+	</ui:define>
+
+</ui:composition>
+</html>

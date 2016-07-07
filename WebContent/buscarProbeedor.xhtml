@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/WEB-INF/template/MasterPage.xhtml">
+
+	<ui:define name="content">
+
+		<h:form>
+			<center>
+				<h:outputText value="Nombre" />
+				<h:inputText value="#{proveedorManagedBean.oProveedor.nombreCia}"></h:inputText>
+				<h:commandButton value="Buscar"
+					action="#{proveedorManagedBean.buscar}"></h:commandButton>
+			</center>
+			<h:dataTable value="#{proveedorManagedBean.listProveedor}" var="u"
+				border="0" styleClass="table">
+				<h:column>
+					<f:facet name="header">Id</f:facet>
+					<h:commandLink action="#{proveedorManagedBean.actualiza}">
+				 #{u.idProveedor}
+				 <f:param name="id" value="#{u.idProveedor}"></f:param>
+					</h:commandLink>
+
+
+				</h:column>
+				<h:column>
+					<f:facet name="header">Nombre</f:facet>
+				#{u.nombreCia}
+			</h:column>
+				<h:column>
+					<f:facet name="header">Nombre Contacto</f:facet>
+				#{u.nombreContacto}
+			</h:column>
+				<h:column>
+					<f:facet name="header">Cargo Contacto</f:facet>
+				#{u.cargoContacto}
+			</h:column>
+				<h:column>
+					<f:facet name="header">Direccion</f:facet>
+				#{u.direccion}
+			</h:column>
+				<h:column>
+					<f:facet name="header">Telefono</f:facet>
+				#{u.telefono}
+			</h:column>
+
+			</h:dataTable>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+</html>

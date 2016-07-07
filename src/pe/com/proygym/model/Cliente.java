@@ -19,17 +19,15 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 @Entity
-@Table(name = "tb_usuarios")
-public class Usuario implements Serializable{
-
-
+@Table(name = "tb_cliente")
+public class Cliente implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@Id
 	@Column
-	private String idUsuario; 
+	private String idCliente; 
 	@Column
 	private String clave; 
 	@Column
@@ -48,132 +46,177 @@ public class Usuario implements Serializable{
 	@Column
 	private String telefono;
 	@Column
+	private double peso;
+	@Column
+	private double talla;
+	public String getIdCliente() {
+		return idCliente;
+	}
+
+
+	public void setIdCliente(String idCliente) {
+		this.idCliente = idCliente;
+	}
+
+
+	public List<Rutina> getListRutina() {
+		return listRutina;
+	}
+
+
+	public void setListRutina(List<Rutina> listRutina) {
+		this.listRutina = listRutina;
+	}
+
+
+	@Column
 	private boolean estado;
 	
-//	private String nombreCompleto;
+//     private String nombreCompleto;
 //	
 //	
 //	public String getNombreCompleto() {
 //		return nombreCompleto+" "+apePaterno;
 //	}
 
-
-
-
 	//Referencia a Distrito
 	@ManyToOne
 	@JoinColumn(name="idDistrito")
 		private Distrito oDistrito = new Distrito();
-		
-	@ManyToOne
-	@JoinColumn(name="idTipoUsu")
-    private TipoUsuario  oTipoUsuario = new TipoUsuario();
 
-	 @OneToMany(mappedBy="oUsuario",cascade=CascadeType.PERSIST)
+	 @OneToMany(mappedBy="oCliente",cascade=CascadeType.PERSIST)
      private List<Rutina> listRutina = new ArrayList<Rutina>();
-	
+
 	public String getIdUsuario() {
-		return idUsuario;
+		return idCliente;
 	}
 
-	public List<Rutina> getListRutina() {
-		return listRutina;
+
+	public void setIdUsuario(String idCliente) {
+		this.idCliente = idCliente;
 	}
 
-	public void setListRutina(List<Rutina> listRutina) {
-		this.listRutina = listRutina;
-	}
-
-	public void setIdUsuario(String idUsuario) {
-		this.idUsuario = idUsuario;
-	}
 
 	public String getClave() {
 		return clave;
 	}
 
+
 	public void setClave(String clave) {
 		this.clave = clave;
 	}
+
 
 	public String getNombre() {
 		return nombre;
 	}
 
+
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 
 	public String getApePaterno() {
 		return apePaterno;
 	}
 
+
 	public void setApePaterno(String apePaterno) {
 		this.apePaterno = apePaterno;
 	}
+
 
 	public String getApeMaterno() {
 		return apeMaterno;
 	}
 
+
 	public void setApeMaterno(String apeMaterno) {
 		this.apeMaterno = apeMaterno;
 	}
+
 
 	public Date getFecNac() {
 		return fecNac;
 	}
 
+
 	public void setFecNac(Date fecNac) {
 		this.fecNac = fecNac;
 	}
+
 
 	public String getCorreo() {
 		return correo;
 	}
 
+
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
+
 
 	public String getDireccion() {
 		return direccion;
 	}
 
+
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
+
 
 	public String getTelefono() {
 		return telefono;
 	}
 
+
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
+
+
+	public double getPeso() {
+		return peso;
+	}
+
+
+	public void setPeso(double peso) {
+		this.peso = peso;
+	}
+
+
+	public double getTalla() {
+		return talla;
+	}
+
+
+	public void setTalla(double talla) {
+		this.talla = talla;
+	}
+
 
 	public boolean isEstado() {
 		return estado;
 	}
 
+
 	public void setEstado(boolean estado) {
 		this.estado = estado;
 	}
+
 
 	public Distrito getoDistrito() {
 		return oDistrito;
 	}
 
+
 	public void setoDistrito(Distrito oDistrito) {
 		this.oDistrito = oDistrito;
 	}
+		
+	
 
-	public TipoUsuario getoTipoUsuario() {
-		return oTipoUsuario;
-	}
-
-	public void setoTipoUsuario(TipoUsuario oTipoUsuario) {
-		this.oTipoUsuario = oTipoUsuario;
-	}
-
+	
 }
