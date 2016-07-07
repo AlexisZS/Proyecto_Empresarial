@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.AjaxBehaviorEvent;
 
 import com.google.common.collect.Lists;
 
@@ -40,6 +41,8 @@ public class ProductoManagedBean {
 	List<Proveedor> listProveedores = new ArrayList<Proveedor>();
 	List<Categoria> listCategorias = new ArrayList<Categoria>();
 
+	StringBuilder detalle;
+	String param;
 	String categoriaSeleccionada;
 	String proveedorSeleccionado;
 	// -------------------------------------------------------------
@@ -55,7 +58,9 @@ public class ProductoManagedBean {
 		producto = new Producto();
 		return "registroProducto";
 	}
+		
 	
+
 	public String paseEditar(){
 		
 		FacesContext context = FacesContext.getCurrentInstance();
@@ -63,8 +68,8 @@ public class ProductoManagedBean {
 		String paramId = (String) params.get("idProd");
 		
 		producto = productoService.getProducto(new String(paramId));
-		
-		
+		proveedorSeleccionado = producto.getoProvedor().getIdProveedor();
+		categoriaSeleccionada = producto.getoCategoria().getIdCategoria();
 		return "updateProducto";
 	}
 	
@@ -76,12 +81,46 @@ public class ProductoManagedBean {
 		producto.setImagen("url/default");
 		productoService.update(producto);
 		producto = new Producto();
+		proveedorSeleccionado = new String();
+		categoriaSeleccionada = new String();
+		
 		return "listadoProductos";
-	}
+	}	
 	
+	public void  load(AjaxBehaviorEvent e){
+		producto = productoService.getProducto(param);
+		detalle.append("Nombre :").append("\t").append(producto.getNomPro()).append("\n");
+
+	}
 	
 	//---------------------------------------------------------------
 	
+	
+	
+	public StringBuilder getDetalle() {
+		return detalle;
+	}
+
+
+
+	public void setDetalle(StringBuilder detalle) {
+		this.detalle = detalle;
+	}
+
+
+
+	public String getParam() {
+		return param;
+	}
+
+
+
+	public void setParam(String param) {
+		this.param = param;
+	}
+
+
+
 	public String getCategoriaSeleccionada() {
 		return categoriaSeleccionada;
 	}
