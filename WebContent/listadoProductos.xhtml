@@ -50,6 +50,13 @@
 						<f:facet name="header">Estado</f:facet>
 						#{u.estado}
 					</h:column>
+					<h:column>
+						<f:facet name="header">o</f:facet>
+						<h:commandLink action="#{productoManagedBean.eliminar}">
+							Eliminar
+							<f:param name="idProd" value="#{u.idProd}"></f:param>
+						</h:commandLink>
+					</h:column>
 				</h:dataTable>
 
 			</h:form>

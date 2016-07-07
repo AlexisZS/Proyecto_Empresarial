@@ -8,9 +8,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.event.AjaxBehaviorEvent;
-
-import com.google.common.collect.Lists;
 
 import pe.com.proygym.model.Categoria;
 import pe.com.proygym.model.Producto;
@@ -18,6 +15,8 @@ import pe.com.proygym.model.Proveedor;
 import pe.com.proygym.service.CategoriaServicio;
 import pe.com.proygym.service.ProductoService;
 import pe.com.proygym.service.ProveedorServicio;
+
+import com.google.common.collect.Lists;
 
 @ManagedBean
 @SessionScoped
@@ -41,8 +40,7 @@ public class ProductoManagedBean {
 	List<Proveedor> listProveedores = new ArrayList<Proveedor>();
 	List<Categoria> listCategorias = new ArrayList<Categoria>();
 
-	StringBuilder detalle;
-	String param;
+
 	String categoriaSeleccionada;
 	String proveedorSeleccionado;
 	// -------------------------------------------------------------
@@ -87,39 +85,30 @@ public class ProductoManagedBean {
 		return "listadoProductos";
 	}	
 	
-	public void  load(AjaxBehaviorEvent e){
-		producto = productoService.getProducto(param);
-		detalle.append("Nombre :").append("\t").append(producto.getNomPro()).append("\n");
-
+	public String eliminar(){
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+		Map params = context.getExternalContext().getRequestParameterMap();
+		String paramId = (String) params.get("idProd");
+		producto = productoService.getProducto(new String(paramId));
+		
+		if(producto.getDisponible() != 1){
+			producto.setDisponible(producto.getDisponible() -1);
+			productoService.update(producto);
+		}else if (producto.getDisponible() == 1) {
+			productoService.remove(producto.getIdProd());
+		}else{
+			System.out.println("numero no valido, no realiza accion");
+		}
+		
+		listProductos = new ArrayList<Producto>();
+		return "listadoProductos";
 	}
 	
 	//---------------------------------------------------------------
 	
 	
 	
-	public StringBuilder getDetalle() {
-		return detalle;
-	}
-
-
-
-	public void setDetalle(StringBuilder detalle) {
-		this.detalle = detalle;
-	}
-
-
-
-	public String getParam() {
-		return param;
-	}
-
-
-
-	public void setParam(String param) {
-		this.param = param;
-	}
-
-
 
 	public String getCategoriaSeleccionada() {
 		return categoriaSeleccionada;

@@ -24,7 +24,7 @@ public class ProductoService {
 	}
 
 	public void remove(String idProd) {
-		remove(idProd);
+		productoRepository.delete(idProd);
 	}
 
 	
